@@ -1,0 +1,11 @@
+DEFAULTS: &DEFAULTS
+ application_name: example_question_chain_application
+ protocol: "http"
+
+development:
+ <<: *DEFAULTS
+ api_server: api-stage.carboncalculated.com
+ api_key: useyourapikey
+
+test:
+ <<: *DEFAULTS

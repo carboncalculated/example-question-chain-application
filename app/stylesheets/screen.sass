@@ -1,0 +1,306 @@
+@import "compass/reset"
+
+$formLabelColor: mix(#eee,#fff,90%) !default
+$contentBackgroundColor: #fff !default
+$textColor: #666 !default
+$lightBorderColor: #bbb !default
+$midBorderColor: #666 !default
+$gridUnit: 30px
+$backgroundColor: #ffffff !default
+$highlightColor: #6891e0 !default
+$secondaryColor: #172131 !default
+$overlayColor: mix($backgroundColor, #000, 25%) !default
+$textColor: #000 !default
+$headingColor: $textColor !default
+$highlightTextColor: #fff !default
+$darkBorderColor: #000 !default
+$midBorderColor: #888 !default
+$lightBorderColor: #fff !default
+
+.hide,
+.hidden
+  display: none
+
+.replace
+  display: block
+  text-indent: -9999em
+  overflow: hidden
+
+=clearfix
+  &:after
+    :content "."
+    :display block
+    :height 0
+    :clear both
+    :visibility hidden
+  /*INLINE BLOCK FOR IE MAC*/
+  :display inline-block
+  /* Hide from IE Mac (REVERT TO DISPLAY BLOCK FOR ALL OTHERS) \*/
+  :display block
+  /* End hide from IE Mac */
+  * html &
+
+=ui_groups_colors($n)
+  dl
+    dt
+      :border-left-color mix($lightBorderColor, $formLabelColor,25%)
+      :border-right-color mix($midBorderColor, $formLabelColor, 25%)
+    dd
+      :border-left-color mix($lightBorderColor, mix($textColor, $contentBackgroundColor, 15%), 25%)
+      :border-right-color mix($midBorderColor, mix($textColor, $contentBackgroundColor, 15%), 25%)
+    .rgba &
+      dt,dd
+        :border-left-color transparentize($lightBorderColor, 0.6)
+        :border-right-color transparentize($midBorderColor, 0.6)
+          
+  &.col1
+    dl.single,
+    dl.col1
+      dt
+        :border-left-color mix($midBorderColor, $formLabelColor, 25%)
+      dd
+        :border-left-color mix($midBorderColor, mix($textColor, $contentBackgroundColor, 15%), 25%)
+      .rgba &
+        dt,dd
+          :border-left-color transparentize($midBorderColor, 0.6)
+          
+=ui_groups_layout($n)
+  fieldset
+    //:padding-right 0
+    //:padding-left 0
+    //:border-right-style none
+    //:border-left-style none
+    
+  dl.single,
+  dl.col1
+    :clear left
+    
+  &.col1
+    fieldset
+      //:padding-right 0
+      //:padding-left 0.5*$gridUnit
+      //:border-right-style none
+      //:border-left-style solid
+        
+  &.col#{$n}
+    fieldset
+      //:padding-right 0.5*$gridUnit
+      //:padding-left 0
+      //:border-left-style none
+      //:border-right-style solid
+
+#question
+  form
+    fieldset
+      padding: 0.5*$gridUnit
+      margin: 0 0 $gridUnit 0
+      border: 1px dotted #ddd
+    dl
+      margin-top: -18px
+    dt,
+    dd
+      text-align: left
+      display: block
+      float: none
+      width: auto
+      margin: 0 1.5*$gridUnit 0 0
+      padding: 0
+      border: 1px solid
+      position: static
+      left: 0
+      
+    dt
+      position: relative
+      left: -18px
+      top: 27px
+      z-index: 5
+      padding-bottom: 18px
+      border: none
+      +clearfix
+      label
+        font-family: "Monaco","Courier","Courier New", monospace
+        font-weight: bold
+        :margin 0
+        :padding 0.25 $gridUnit
+        :float left
+        :display inline
+        color: #000
+        background-color: $formLabelColor
+    dd
+      :min-height 1.5*$gridUnit
+      :position relative
+      :padding 18px 1.5*$gridUnit 0.5*$gridUnit 1.5*$gridUnit
+      :background-color mix($textColor, $contentBackgroundColor, 5%)
+      :border-color mix($midBorderColor, mix($textColor, $contentBackgroundColor, 15%), 25%)
+      input,
+      select
+        position: relative
+        width: 100%
+        z-index: 6
+        
+    .buttons
+      :padding-top $gridUnit
+      
+    .single
+      :clear both
+      :width 100%
+      
+    .double
+      :width 50%
+      :float left
+      &.large
+        :width 66.6667%
+      &.small
+        :width 33.3333%
+      
+    .tripple
+      :width 33.3333%
+      :float left
+      
+    .quadrupple
+      :width 25%
+      :float left
+      
+    .quintipple
+      :width 20%
+      :float left
+      
+    .ui_groups
+      +clearfix
+      
+    .ui_group
+      +clearfix
+      
+    .ui_group.single
+      dl
+        dt
+          :border-left-color mix($lightBorderColor, $formLabelColor,25%)
+          :border-right-color mix($midBorderColor, $formLabelColor, 25%)
+        dd
+          :border-left-color mix($lightBorderColor, mix($textColor, $contentBackgroundColor, 15%), 25%)
+          :border-right-color mix($midBorderColor, mix($textColor, $contentBackgroundColor, 15%), 25%)
+          
+      dl.single,
+      dl.col1
+        dt
+          :border-left-color mix($midBorderColor, $formLabelColor, 25%)
+        dd
+          :border-left-color mix($midBorderColor, mix($textColor, $contentBackgroundColor, 15%), 25%)
+          
+      dl.col1
+        :clear left
+          
+    .ui_group.double
+      +ui_groups_layout(2)
+      +ui_groups_colors(2)
+      
+    .ui_group.tripple
+      +ui_groups_layout(3)
+      +ui_groups_colors(3)
+      
+    .ui_group.quadrupple
+      +ui_groups_layout(4)
+      +ui_groups_colors(4)
+      
+    .ui_group.quintipple
+      +ui_groups_layout(5)
+      +ui_groups_colors(5)
+      
+    .ui_group.bottomless
+      fieldset
+        :padding-bottom 0
+        :margin-bottom 0
+        :border-bottom-style none
+      
+    .ui_group.topless
+      fieldset
+        :padding-top 0
+        :margin-top 0
+        :border-top-style none
+
+
+
+.ma-container
+  color: $textColor
+  position: absolute
+  visibility: hidden
+  overflow-y: auto
+  overflow-x: hidden
+  border: 1px solid mix($darkBorderColor,$backgroundColor,40%)
+  background-color: $backgroundColor
+  
+  ul
+    list-style: none
+    overflow: hidden
+    width: 100%
+    margin: 0
+  li
+    line-height: $gridUnit
+    padding: 2px 5px
+    cursor: pointer
+    float: left
+    width: 100%
+    overflow: hidden
+    
+  .ma-hover
+    background-color: $highlightColor !important
+    color: $highlightTextColor
+  .ma-odd
+    background-color: $backgroundColor
+    
+  .ma-even
+    background-color: mix($highlightColor, $backgroundColor, 15%)
+    
+dl.loading dd,
+dd.ma-loading
+  :background none transparent scroll no-repeat 0px 11px !important
+  :background-image url(/images/ajax-loader.gif) !important
+    
+dl dd.ma-selected
+  :background none transparent scroll no-repeat 0px 11px
+  :background-image url(/images/field-check.png) !important
+
+
+.tooltip
+  text-align: left
+  display: inline-block
+  width: 18px
+  height: 18px
+  cursor: help
+  text-indent: -9999em
+  vertical-align: baseline
+  overflow: hidden
+  background: none transparent scroll no-repeat 0 center
+  background-image: url(/images/extra-info.png)
+
+  .description
+    display: none
+
+.tip-wrap
+  :z-index 50
+  :width 300px
+  :padding $gridUnit
+  :color $highlightTextColor
+  :background-color $overlayColor
+  :text-shadow -1px -1px 0 rgba(0,0,0,1)
+  .rgba &
+    :background-color transparentize($overlayColor, 0.1)
+  dl
+    margin: 0
+    dt
+      font-size: 12px
+      :text-align right
+      :float left
+      :display inline
+      :width 6*$gridUnit
+      :clear left
+      :color mix($overlayColor,$highlightTextColor,40%)
+      :overflow hidden
+      :font-weight bold
+      &:after
+        :content ":"
+        :display inline
+    dd
+      :margin-bottom 0.5*$gridUnit
+      :margin-left 7*$gridUnit
+      +clearfix

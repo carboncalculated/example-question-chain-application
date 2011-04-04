@@ -1,0 +1,10 @@
+development:
+  adapter: mongodb
+  database: example_question_chain_development
+  host: localhost
+  port: 27017
+  
+test:
+  database: example_question_chain_test
+  host: localhost
+  port: 27017

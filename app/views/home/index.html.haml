@@ -1,0 +1,19 @@
+%h2
+  Example Rails3 Application Using Question Chain To Generate Carbon Calculators
+
+%p
+  Other information and then links to the calculators basically on top of that!
+
+- @account = Account.first_or_create(:name => "account")
+%ul
+  %li
+    Flight Calculator
+    = link_to "Create", new_account_answer_path(:account_id => @account.id, :context => "flights")
+    
+  %li
+    Materials Calculator
+    = link_to " Create", new_account_answer_path(:account_id => @account.id, :context => "materials")
+    
+  %li
+    Fuels Calculator
+    = link_to " Create", new_account_answer_path(:account_id => @account.id ,:context => "fuels")

@@ -1,0 +1,16 @@
+== Example Carbon Application Using Question Chain
+
+This example application show how you can start using the question_chain Rails3 Engine to create carbon calculators
+
+=== Installing
+  
+  bundle install
+  
+  rake question:flight
+  rake question:fuel
+  rake question:material
+  rake chain_template_contexts:run
+  
+  rails server
+  
+

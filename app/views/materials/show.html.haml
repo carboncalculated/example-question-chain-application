@@ -1,0 +1,13 @@
+%h2
+  Material
+  = resource.identifier
+  
+%p
+  Co2
+%p
+  = resource.co2
+
+%p
+  What is amazing is that you can edit this entry!!!
+
+  = link_to "edit", edit_account_answer_path(:account_id => @account.id, :context => "materials", :id => resource.id)
